@@ -8,3 +8,25 @@
             border: .25rem solid $primaryLight;
         }
 }
+
+div.accessButtons {
+    text-align: center;
+}
+
+.login,
+.logout,
+.guestButton {
+    margin-top: .75rem;
+}
+
+.login,
+.logout {
+    margin-top: 3rem;
+}
+
+@include media(750px) {
+    div.accessButtons {
+        margin-right: 1rem;
+        flex-basis: 10%;
+    }
+}

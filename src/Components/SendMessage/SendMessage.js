@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import firebase from '../firebase';
 import yodaQuotes from '../YodaQuotes/YodaQuotes';
+import './_sendMessage.scss';
 
 class SendMessage extends Component {
     constructor() {
@@ -51,16 +52,19 @@ class SendMessage extends Component {
     render(){
         return(
             <div className="sendMessage">
-                <textarea
-                    type="text"
-                    id="message"
-                    onChange={this.updateMessage}
-                    value={this.state.userMessage}
-                />
-                <button onClick={this.submit} id="generateChat">Show text and random yoda quote</button>
+                <form name="sendMessages" action="">
+                    <label htmlFor="userInputMessage" className="visuallyHidden">Text Area to type Message</label>
+                    <textarea
+                        type="text"
+                        name="userInputMessage"
+                        id="message"
+                        onChange={this.updateMessage}
+                        value={this.state.userMessage}
+                    />
+                    <label htmlFor="submitMessage" className="visuallyHidden">Button to Submit Message</label>
+                    <button name="submitMessage" className="accessButton" onClick={this.submit} id="generateChat">Show text and random yoda quote</button>
+                </form>
             </div>
-
-            //add labels to the buttons here
         )
     }
 }

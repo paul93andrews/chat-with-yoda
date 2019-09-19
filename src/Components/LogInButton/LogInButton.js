@@ -36,7 +36,7 @@ class LogInButton extends Component {
         return(
             <div className="buttons">
                 {this.props.userSignedIn ?
-                    <button onClick={this.logout} className="logout accessButton">Log Out</button>
+                    <button onClick={this.logout} className="logout accessButton" name="logoutButton">Log Out</button>
                     :
                     <button onClick={this.login} className="login accessButton">Log In</button>
                 }

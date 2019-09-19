@@ -1,0 +1,64 @@
+@import '../globalStyles/variablesNMixins';
+
+section.chatBox {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem 0;
+    max-width: 30rem;
+    section.chatArea {
+        background: rgba(54, 143, 139, 0.74);
+        border-radius: .5rem;
+        height: 25rem;
+        overflow-y: scroll;
+        display: flex;
+        flex-direction: column;
+        img.lightsaber {
+            border-radius: 50%;
+            width: 97%;
+            align-self: center;
+            margin-top: 30%;
+            -webkit-animation: vibrate-2 0.3s linear infinite both;
+            animation: vibrate-2 0.3s linear infinite both;
+        }
+        li {
+            margin-top: -.5rem;
+            display: flex;
+            flex-direction: column;
+            p {
+                background: $primaryLight;
+                border-radius: .25rem;
+                display: inline-block;
+                padding: .25rem 1rem;
+                width: 60%;
+            }
+        }
+        li p:nth-child(2) {
+            text-align: right;
+            margin-top: -.5rem;
+            width: 60%;
+            align-self: flex-end;
+        }
+    }
+}
+
+@include media(360px) {
+    section.chatBox section.chatArea img.lightsaber {
+        margin-top: 15%;
+    }
+}
+
+@include media(440px) {
+    section.chatBox section.chatArea img.lightsaber {
+        margin-top: 0;
+        width: 90%;
+    }
+}
+
+@include media(750px) {
+    section.chatBox {
+        flex-basis: 60%;
+        padding-bottom: 0;
+    }
+}

@@ -69,12 +69,13 @@ class App extends Component {
   render(){
     return (
       <body>
-        <div className="heading">
+        <div className="heading wrapper">
           <h1>Chat with Yoda</h1>
         </div>
-        <main className="userInteractionArea">
+        <main className="userInteractionArea wrapper">
           <div className="imageContainer">
-            <img src="" alt=""/>
+            <img src={require("./images/yodaImage.png")} alt="Photo of a wise and stoic Yoda" className="yoda rotate"/>
+            <p className="description">Seeking wisdom? Mindfulness training? Advice for living on swampy planets? Then chat with this wise master from a galaxy far, far away</p>
           </div>
           <div className="accessButtons">
             <LogInLogOutButton 
@@ -94,6 +95,7 @@ class App extends Component {
         </main>
         <footer>
           <p>Designed and Coded by Paul Andrews</p>
+          {/* cool effect that on hover changes the text from the above to May the Force be with you */}
         </footer>
       </body>
     );

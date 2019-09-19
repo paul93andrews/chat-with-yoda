@@ -8,6 +8,7 @@ class GuestButton extends Component {
     }
 
     guestSubmit = () => {
+        // rewrite function so that if a user is already signed in, the guest button disappears
         firebase.auth().signInAnonymously()
             .then((result) => {
                 const guestUser = result.user;

@@ -1,0 +1,39 @@
+@import '../globalStyles/variablesNMixins';
+
+div.sendMessage {
+    form{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        textarea {
+            resize: none;
+            height: auto;
+            border: .25rem solid $accentColor;
+            align-self: stretch;
+            &:focus {
+                border: .25rem solid $primaryDark;
+            }
+        }
+        textarea,
+        #generateChat {
+            flex-basis: 50%;
+        }
+        #generateChat {
+            @include generalButtonStyle;
+            &:hover,
+            &:focus {
+                background: $accentColor;
+                border: .25rem solid $primaryLight;
+            }
+        }
+    }
+    // .removeChat {
+    //     @include generalButtonStyle;
+    //     width: 100%;
+    //     &:hover,
+    //     &:focus {
+    //         background: $accentColor;
+    //         border: .25rem solid $primaryLight;
+    //     }
+    // }
+}
