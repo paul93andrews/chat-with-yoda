@@ -9,6 +9,7 @@ class ChatArea extends Component {
         }
     }
 
+    // below are functions that will update state in this component when submit button is pressed on SendMessage component
     delayYodaMessage = () => {
         this.setState({
             yodaDelayFinished: false
@@ -23,37 +24,43 @@ class ChatArea extends Component {
         }, 2000)
     }
 
-    render(props) {
+    render() {
         return(
             <section className="chatBox">
-                <div className="chatArea" id="chat">
-                    {this.props.userMessages.map((convo, index) => {
-                        return (
-                            <ul id="chatHistory">
-                                <li>
-                                    <p>{
-                                        this.props.userName == null 
-                                        ? 'Guest: '
-                                        : convo.pastMessages.name + ': '}
-                                        {convo.pastMessages.userMessage}
-                                    </p>
-                                    <p>
-                                        {index !== this.props.userMessages.length - 1
-                                            ? 'Yoda: ' + convo.pastMessages.yodaQuote
-                                            : this.state.yodaDelayFinished ? 'Yoda: ' + convo.pastMessages.yodaQuote : "..."
-                                        }
-                                    </p>
-                                </li>
-                            </ul>
-                        );
-                    })}
-                </div>
-                <SendMessage
-                userID={this.props.userID}
-                delayYoda={this.delayYodaMessage}
-                showYoda={this.showYodaMessage}
-                userName={this.props.userName}
-                />
+                {/* ternary operator below checks if there is a user signed in and will display different chatBox designs depending on which is true */}
+                {this.props.userID == ''
+                ? true
+                : <section className="chatArea">
+                    <div className="messageArea" id="chat">
+                        {this.props.userMessages.map((convo, index) => {
+                            return (
+                                <ul id="chatHistory" key={index}>
+                                    <li>
+                                        <p>{
+                                            this.props.userName == null
+                                                ? 'Guest: '
+                                                : convo.pastMessages.name + ': '}
+                                            {convo.pastMessages.userMessage}
+                                        </p>
+                                        <p>
+                                            {index !== this.props.userMessages.length - 1
+                                                ? 'Yoda: ' + convo.pastMessages.yodaQuote
+                                                : this.state.yodaDelayFinished ? 'Yoda: ' + convo.pastMessages.yodaQuote : "..."
+                                            }
+                                        </p>
+                                    </li>
+                                </ul>
+                            );
+                        })}
+                    </div>
+                    <SendMessage
+                        userID={this.props.userID}
+                        delayYoda={this.delayYodaMessage}
+                        showYoda={this.showYodaMessage}
+                        userName={this.props.userName}
+                    />
+                </section>
+                }
             </section>
         )
     }

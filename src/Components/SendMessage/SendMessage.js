@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import firebase from '../firebase';
 import yodaQuotes from '../YodaQuotes/YodaQuotes';
 
-
 class SendMessage extends Component {
     constructor() {
         super();
@@ -10,15 +9,6 @@ class SendMessage extends Component {
             randomYoda: yodaQuotes[Math.floor(Math.random() * yodaQuotes.length)],
             userMessage: ''
         }
-    }
-
-    //anytime user sends a message it will get pushed up to the database to go through the cycle
-    
-    componentDidMount() {
-        
-    }
-
-    componentWillUpdate() {
     }
 
     updateMessage = event => {
@@ -33,6 +23,7 @@ class SendMessage extends Component {
         //if else statement that will error handle for when no message is typed and then update state when message is inputted
         if (this.state.userMessage == '') {
             alert('you must have a message for the Jedi Master');
+            //make this a sweet alert
         }
         else {
             this.props.delayYoda();
@@ -48,7 +39,7 @@ class SendMessage extends Component {
                 userMessage: this.state.userMessage,
                 yodaQuote: this.state.randomYoda
             });
-            // reset our input field back to empty
+            // reset our input/message field back to empty
             this.setState({
                 userMessage: "",
             });
@@ -57,10 +48,9 @@ class SendMessage extends Component {
         this.props.showYoda();
     }
 
-
     render(){
         return(
-            <section className="sendMessage">
+            <div className="sendMessage">
                 <textarea
                     type="text"
                     id="message"
@@ -68,8 +58,7 @@ class SendMessage extends Component {
                     value={this.state.userMessage}
                 />
                 <button onClick={this.submit} id="generateChat">Show text and random yoda quote</button>
-                {/* <button onClick={this.props.removeChat} className="removeChat">Remove Chat History</button> */}
-            </section>
+            </div>
 
             //add labels to the buttons here
         )

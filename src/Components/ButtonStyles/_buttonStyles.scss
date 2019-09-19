@@ -1,0 +1,10 @@
+@import '../globalStyles/variablesNMixins';
+
+.accessButton {
+    @include generalButtonStyle;
+        &:hover,
+        &:focus {
+            background: $accentColor;
+            border: .25rem solid $primaryLight;
+        }
+}

@@ -1,0 +1,22 @@
+//color variables
+$primaryLight: #7cdf64;
+$primaryDark: #368f8b;
+$accentColor: springgreen;
+
+//mixins
+@mixin generalButtonStyle {
+    text-transform: uppercase;
+    background: $primaryLight;
+    letter-spacing: .05rem;
+    line-height: 1.6rem;
+    border: .25rem solid $accentColor;
+    border-radius: .25rem;
+    padding: .5rem .75rem;
+    transition: all .25s;
+}
+
+@mixin media($width) {
+    @media only screen and (min-width: $width) {
+        @content;
+    }
+}
