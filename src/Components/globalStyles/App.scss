@@ -1,10 +1,14 @@
 @import './setup';
 @import url('https://fonts.googleapis.com/css?family=Oswald|Righteous&display=swap');
 @import './variablesNMixins';
+@import './animation';
 
 body {
     margin: 0;
     font-size: 120%;
+    background: url(../images/yodaBackground.jpg);
+    background-position: center;
+    background-size: cover;
 }
 
 main {
@@ -12,14 +16,22 @@ main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    //   background: url(../images/yodaBackground.jpg);
-    background-position: center;
-    background-size: cover;
 }
 
 div.chatArea {
     height: 25rem;
     overflow-y: scroll;
+}
+
+div.imageContainer {
+    text-align: center;
+}
+
+img.yoda {
+    width: 60%;
+    margin: 0 auto;
+    filter: drop-shadow(-8px -4px 6px springgreen);
+    margin-top: 2rem;
 }
 
 ul {
@@ -35,22 +47,47 @@ h2 {
     font-family: 'Righteous', cursive;
     color: $primaryLight;
     text-shadow: 4px 3px 0px $primaryDark;
-}
-
-h2 {
-    color: $primaryLight;
-    text-shadow: 2px 1px 0px $primaryDark;
-    font-size: 1.5rem;
+    text-align: center;
 }
 
 p {
     font-family: 'Oswald', sans-serif;
 }
 
+p.description {
+    color: $primaryLight;
+    text-shadow: 2px 1px 0px $primaryDark;
+    font-size: 1.5rem;
+}
+
+
+footer {
+    background: $accentColor;
+    text-align: center;
+    p {
+        margin: 0;
+        font-size: .95rem;
+    }
+}
+
+
 .wrapper {
     width: 90%;
     margin: 0 auto;
     max-width: 1500px;
+}
+
+.rotate {
+  animation: rotation 8s infinite alternate linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-15deg);
+  }
 }
 
 button {
@@ -62,14 +99,36 @@ input {
     background: #eae1e1;
 }
 
-@include media(450px) {
-    h1 {
-        font-size: 4rem;
+.vibrate-2 {
+	-webkit-animation: vibrate-2 0.3s linear infinite both;
+    animation: vibrate-2 0.3s linear infinite both;
+}
+
+@include media(550px) {
+    img.yoda {
+        margin-top: .5rem;
     }
 }
 
 @include media(750px) {
-    h2 {
-        font-size: 1.85rem
+    main {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        min-height: 80.25vh;
+        img.yoda {
+            width: 80%;
+        }
+        p.description {
+            width: 90%;
+        }
+    }
+    
+    h1 {
+        font-size: 4rem;
+    }
+
+    div.imageContainer {
+        flex-basis: 30%;
     }
 }
