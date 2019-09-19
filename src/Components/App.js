@@ -18,6 +18,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    // function below checks firebase to see if a user was previously signed in prior to refresh or changing tabs
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.setState({
@@ -26,9 +27,8 @@ class App extends Component {
           userUID: user.uid
         });
 
-        console.log(this.state.userUID);
         const dbRef = firebase.database().ref().child(this.state.userUID);
-
+        // following function pulls history of messages on firebase according to the previously signed in user and populates an array in state that will display the messages in the chat area
         dbRef.on("value", data => {
             const response = data.val();
 
@@ -48,6 +48,7 @@ class App extends Component {
     });
   }
 
+  // below are functions that will bring data from firebase calls made in button components into main app to be passed down throughout app's components
   loginLogoutStateChanges = (user, userName, userID, userMessages) => {
     this.setState({
       user,
@@ -68,6 +69,13 @@ class App extends Component {
   render(){
     return (
       <body>
+        <div className="heading">
+          <h1>Chat with Yoda</h1>
+        </div>
+        <main className="userInteractionArea">
+          <div className="imageContainer">
+            <img src="" alt=""/>
+          </div>
           <div className="accessButtons">
             <LogInLogOutButton 
             userSignedIn={this.state.user}
@@ -77,15 +85,18 @@ class App extends Component {
             guestAccess={this.updateGuestAccessInState}
             />
           </div>
-        <ChatArea
-        userID={this.state.userUID}
-        userMessages={this.state.storedMessages}
-        userName={this.state.username}
-        guestAccess={this.state.guestUser}
-        />
+          <ChatArea
+          userID={this.state.userUID}
+          userMessages={this.state.storedMessages}
+          userName={this.state.username}
+          guestAccess={this.state.guestUser}
+          />
+        </main>
+        <footer>
+          <p>Designed and Coded by Paul Andrews</p>
+        </footer>
       </body>
     );
-    
   }
 }
 

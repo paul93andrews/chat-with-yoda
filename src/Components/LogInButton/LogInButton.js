@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import firebase, { auth, provider } from '../firebase';
+import '../ButtonStyles/_buttonStyles.scss';
 
 class LogInButton extends Component {
     constructor() {
@@ -33,11 +34,11 @@ class LogInButton extends Component {
 
     render() {
         return(
-            <div className="button">
+            <div className="buttons">
                 {this.props.userSignedIn ?
-                    <button onClick={this.logout}>Log Out</button>
+                    <button onClick={this.logout} className="logout accessButton">Log Out</button>
                     :
-                    <button onClick={this.login}>Log In</button>
+                    <button onClick={this.login} className="login accessButton">Log In</button>
                 }
             </div>
         )

@@ -1,1 +1,75 @@
 @import './setup';
+@import url('https://fonts.googleapis.com/css?family=Oswald|Righteous&display=swap');
+@import './variablesNMixins';
+
+body {
+    margin: 0;
+    font-size: 120%;
+}
+
+main {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    //   background: url(../images/yodaBackground.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+div.chatArea {
+    height: 25rem;
+    overflow-y: scroll;
+}
+
+ul {
+    list-style: none;
+    padding: 0 1rem;
+}
+
+h1,
+h2 {
+    text-transform: uppercase;
+    margin: 0;
+    padding: 2rem 0 1rem 0;
+    font-family: 'Righteous', cursive;
+    color: $primaryLight;
+    text-shadow: 4px 3px 0px $primaryDark;
+}
+
+h2 {
+    color: $primaryLight;
+    text-shadow: 2px 1px 0px $primaryDark;
+    font-size: 1.5rem;
+}
+
+p {
+    font-family: 'Oswald', sans-serif;
+}
+
+.wrapper {
+    width: 90%;
+    margin: 0 auto;
+    max-width: 1500px;
+}
+
+button {
+    font-family: 'Righteous', cursive;
+}
+
+textarea,
+input {
+    background: #eae1e1;
+}
+
+@include media(450px) {
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@include media(750px) {
+    h2 {
+        font-size: 1.85rem
+    }
+}

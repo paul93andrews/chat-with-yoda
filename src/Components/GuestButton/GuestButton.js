@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import firebase, { auth, provider } from '../firebase';
-
-
+import '../ButtonStyles/_buttonStyles.scss';
 
 class GuestButton extends Component {
     constructor() {
@@ -19,7 +18,7 @@ class GuestButton extends Component {
 
     render(){
         return(
-            <button className="guestButton" onClick={this.guestSubmit}>Guest</button>
+            <button className="guestButton accessButton" onClick={this.guestSubmit}>Guest</button>
         )
     }
 }
