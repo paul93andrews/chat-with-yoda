@@ -10,6 +10,13 @@ class ChatArea extends Component {
         }
     }
 
+
+    componentDidUpdate() {
+        if (this.messagesEnd) {
+            this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+        }
+    }
+
     // below are functions that will update state in this component when submit button is pressed on SendMessage component
     delayYodaMessage = () => {
         this.setState({
@@ -57,6 +64,7 @@ class ChatArea extends Component {
                                 );
                             })}
                         </div>
+                        <div ref={(el) => { this.messagesEnd = el }}></div>
                     </section>
                     <SendMessage
                         userID={this.props.userID}

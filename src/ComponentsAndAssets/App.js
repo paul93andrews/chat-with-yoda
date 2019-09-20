@@ -4,6 +4,7 @@ import firebase, { auth, provider } from './firebase';
 import LogInLogOutButton from './LogInButton/LogInButton';
 import GuestButton from './GuestButton/GuestButton';
 import ChatArea from './ChatArea/ChatArea';
+import Footer from './Footer/Footer';
 
 class App extends Component {
   constructor(){
@@ -68,7 +69,7 @@ class App extends Component {
 
   render(){
     return (
-      <body>
+      <div className="body">
         <div className="heading wrapper">
           <h1>Chat with Yoda</h1>
         </div>
@@ -84,6 +85,7 @@ class App extends Component {
             />
             <GuestButton
             guestAccess={this.updateGuestAccessInState}
+            userID={this.state.userUID}
             />
           </div>
           <ChatArea
@@ -93,13 +95,14 @@ class App extends Component {
           guestAccess={this.state.guestUser}
           />
         </main>
-        <footer>
-          <p>Designed and Coded by Paul Andrews</p>
-          {/* cool effect that on hover changes the text from the above to May the Force be with you */}
-        </footer>
-      </body>
+        <Footer />
+      </div>
     );
   }
 }
 
 export default App;
+{/* <footer>
+  <p>Designed and Coded by Paul Andrews</p>
+  {/* cool effect that on hover changes the text from the above to May the Force be with you */}
+// </footer> */}

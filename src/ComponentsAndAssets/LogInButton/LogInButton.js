@@ -36,9 +36,9 @@ class LogInButton extends Component {
         return(
             <div className="buttons">
                 {this.props.userSignedIn ?
-                    <button onClick={this.logout} className="logout accessButton" name="logoutButton">Log Out</button>
+                    <button onClick={this.logout} className="logout accessButton" name="logoutButton" aria-labelledby="Click to log out of your chat with Yoda">Log Out</button>
                     :
-                    <button onClick={this.login} className="login accessButton">Log In</button>
+                    <button onClick={this.login} className="login accessButton" aria-labelledby="Click to log in with Gmail to your chat with Yoda">Log In</button>
                 }
             </div>
         )
