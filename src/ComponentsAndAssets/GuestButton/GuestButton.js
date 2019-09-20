@@ -19,7 +19,13 @@ class GuestButton extends Component {
 
     render(){
         return(
-            <button className="guestButton accessButton" onClick={this.guestSubmit}>Guest</button>
+            <div>
+                {
+                    this.props.userID == ''
+                        ? <button className="guestButton accessButton" onClick={this.guestSubmit} aria-labelledby="Click to begin chat with Yoda as a guest">Guest</button>
+                    : true
+                }
+            </div>
         )
     }
 }

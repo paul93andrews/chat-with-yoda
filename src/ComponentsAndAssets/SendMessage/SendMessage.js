@@ -53,7 +53,7 @@ class SendMessage extends Component {
         return(
             <div className="sendMessage">
                 <form name="sendMessages" action="">
-                    <label htmlFor="userInputMessage" className="visuallyHidden">Text Area to type Message</label>
+                    <label htmlFor="userInputMessage" className="visuallyHidden">Text area to type message</label>
                     <textarea
                         type="text"
                         name="userInputMessage"
@@ -61,8 +61,8 @@ class SendMessage extends Component {
                         onChange={this.updateMessage}
                         value={this.state.userMessage}
                     />
-                    <label htmlFor="submitMessage" className="visuallyHidden">Button to Submit Message</label>
-                    <button name="submitMessage" className="accessButton" onClick={this.submit} id="generateChat">Show text and random yoda quote</button>
+                    <label htmlFor="submitMessage" className="visuallyHidden">Button to submit message</label>
+                    <button name="submitMessage" className="accessButton" onClick={this.submit} id="generateChat">Submit</button>
                 </form>
             </div>
         )
