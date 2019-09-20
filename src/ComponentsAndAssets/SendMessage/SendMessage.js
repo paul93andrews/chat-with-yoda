@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import firebase from '../firebase';
 import yodaQuotes from '../YodaQuotes/YodaQuotes';
 import './_sendMessage.scss';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 class SendMessage extends Component {
     constructor() {
@@ -23,7 +25,14 @@ class SendMessage extends Component {
 
         //if else statement that will error handle for when no message is typed and then update state when message is inputted
         if (this.state.userMessage == '') {
-            alert('you must have a message for the Jedi Master');
+            Swal.fire({
+                title: `The droids you're looking for, these are not`,
+                text: 'Have a message for the Jedi Master, you must',
+                type: 'error',
+                confirmButtonText: 'Write a new message',
+                background: '#368f8b',
+                confirmButtonColor: 'springgreen'
+                });
             //make this a sweet alert
         }
         else {

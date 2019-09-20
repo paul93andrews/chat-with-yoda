@@ -27,13 +27,13 @@ div.sendMessage {
             }
         }
     }
-    // .removeChat {
-    //     @include generalButtonStyle;
-    //     width: 100%;
-    //     &:hover,
-    //     &:focus {
-    //         background: $accentColor;
-    //         border: .25rem solid $primaryLight;
-    //     }
-    // }
+}
+
+#swal2-title {
+    color: white;
+}
+
+#swal2-content {
+    color: springgreen;
+    font-style: italic;
 }
