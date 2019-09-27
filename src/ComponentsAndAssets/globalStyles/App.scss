@@ -114,7 +114,8 @@ input {
     main {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
+        align-items: center;
         min-height: 85.25vh;
         img.yoda {
             width: 80%;
@@ -122,6 +123,7 @@ input {
         p.description {
             width: 90%;
         }
+        
     }
     
     h1 {

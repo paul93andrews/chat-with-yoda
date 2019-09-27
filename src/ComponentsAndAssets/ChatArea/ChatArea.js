@@ -10,10 +10,9 @@ class ChatArea extends Component {
         }
     }
 
-
     componentDidUpdate() {
         if (this.messagesEnd) {
-            this.messagesEnd.scrollIntoView({ behavior: 'smooth' })
+            this.messagesEnd.scrollIntoView({ block:'nearest', behavior: 'smooth' })
         }
     }
 
